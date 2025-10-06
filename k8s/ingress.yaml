@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: backstage-demo-python-app-ingress
+spec:
+  rules:
+  - host: "python-app.test.com"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: backstage-demo-python-app
+            port:
+              number: 8080
