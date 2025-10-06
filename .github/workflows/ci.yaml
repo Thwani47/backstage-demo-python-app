@@ -21,4 +21,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: 84733/backstage-demo-python-app:${GITHUB_SHA::6}
+          tags: 84733/backstage-demo-python-app:${{ github.sha }}
