@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: 84733/backstage-demo-python-app
   pullPolicy: IfNotPresent
-  tag: "624e37"
+  tag: "87545f"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
