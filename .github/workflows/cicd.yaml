@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - src/**
+      - .github/workflows/**
     branches:
       - master
 
@@ -31,6 +32,13 @@ jobs:
     needs: ci
     runs-on: self-hosted
     steps:
+      - name: Install ArgoCD
+        shell: bash
+        run: |
+          curl -k -sSL -o argocd argocd-server.argocd/download/argocd-linux-amd64
+          chmod +x argocd
+          mv ./argocd /usr/local/bin/argocd
+
       - name: ArgoCD application sync
         shell: bash
         run: |
