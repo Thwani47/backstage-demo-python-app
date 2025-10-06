@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "backstage-demeo-python-app.name" -}}
+{{- define "backstage-demo-python-app.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "backstage-demeo-python-app.fullname" -}}
+{{- define "backstage-demo-python-app.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "backstage-demeo-python-app.chart" -}}
+{{- define "backstage-demo-python-app.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "backstage-demeo-python-app.labels" -}}
-helm.sh/chart: {{ include "backstage-demeo-python-app.chart" . }}
-{{ include "backstage-demeo-python-app.selectorLabels" . }}
+{{- define "backstage-demo-python-app.labels" -}}
+helm.sh/chart: {{ include "backstage-demo-python-app.chart" . }}
+{{ include "backstage-demo-python-app.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "backstage-demeo-python-app.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "backstage-demeo-python-app.name" . }}
+{{- define "backstage-demo-python-app.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "backstage-demo-python-app.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "backstage-demeo-python-app.serviceAccountName" -}}
+{{- define "backstage-demo-python-app.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "backstage-demeo-python-app.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "backstage-demo-python-app.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
