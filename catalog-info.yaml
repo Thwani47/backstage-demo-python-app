@@ -5,7 +5,7 @@ metadata:
   description: A demo Python application for Backstage
   annotations:
     github.com/project-slug: Thwani47/backstage-demo-python-app
-
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: service
   owner: development
